@@ -1,0 +1,13 @@
+@import url(core.css);
+@media (prefers-color-scheme: dark) {
+  :root{--theme: #333;}
+  html, body{background: #333;}
+  .header{
+    background: #333;
+    box-shadow: 0 0 15px 3px #222;
+    color: #fff;
+  }
+  .header .fa{color: #fff;}
+  .selector select{color: #fff;}
+  .selector .fa{color: #fff;}
+}

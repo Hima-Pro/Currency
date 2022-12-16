@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="manifest" href="assets/manifest.json">
+    <meta name="description" content="All Currencies Converter by https://tdim.me" />
+    <link rel="icon shortcut" href="./assets/images/logo-512.png">
+    <link rel="stylesheet" href="./assets/css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="alternate" hreflang="en" href="."/>
+    <script>
+    if(!location.href.includes("localhost")){
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+      if(!navigator.onLine){
+        var link=document.createElement("a");
+        link.href="assets/offline.html";
+        link.click();
+      }
+     }
+    </script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
+  </head>
+  <body>
+    <section id="app">
+    <center class="header">
+      <img class="ui-logo" alt="Currency Converter" src="assets/images/logo-ui.svg">
+      <h1>
+        Currency Converter
+        <a class="fa fa-globe" href="all.html"></a>
+      </h1>
+    </center>
+    <center class="float-container">
+      <div class="selector">
+        <select id="from">
+          <option value="EGP">EGP - Egypt Pound</option>
+          <option value="USD">USD - United States Dollar</option>
+          <option selected value="RUB">RUB - Russia Ruble</option>
+          <option value="SAR">SAR - Saudi Arabia Riyal</option>
+        </select>
+        <i class="fa fa-arrow-right"></i>
+        <select id="to">
+          <option selected value="EGP">EGP - Egypt Pound</option>
+          <option value="USD">USD - United States Dollar</option>
+          <option value="RUB">RUB - Russia Ruble</option>
+          <option value="SAR">SAR - Saudi Arabia Riyal</option>
+        </select>
+      </div>
+      <div class="container">
+        <p id="from-title">From :</p>
+        <input id="fromVal" type="number" placeholder="0.00">
+        <br>
+        <p id="to-title">To :</p>
+        <input id="toVal" placeholder="0.00" disabled>
+        <br>
+        <br>
+        <button onclick="exchange(from.value,to.value,fromVal.value);">Convert</button>
+      </div>
+      <div class="social">
+        <a href="http://github.com/TdimMax"><i class="fab fa-github"></i></a>
+        <a href="http://t.me/TdimDev"><i class="fab fa-telegram"></i></a>
+        <a href="http://instagram.com/Tdim.Dev"><i class="fab fa-instagram"></i></a>
+        <a href="http://fb.com/TdimDev"><i class="fab fa-facebook"></i></a>
+        <a href="http://m.me/TdimDev"><i class="fab fa-facebook-messenger"></i></a>
+      </div>
+    </center>
+    </section>
+    <script src="./assets/js/apiKey.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

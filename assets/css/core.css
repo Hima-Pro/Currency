@@ -1,0 +1,128 @@
+:root{--theme:#fff;}
+*{
+  font-family: Sans-Serif;
+  box-sizing: border-box;
+  outline: 0;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+#app{
+  max-width: 375px;
+  height:600px;
+  margin: 0;
+}
+.header{
+  width: 100%;
+  height: 65%;
+  border-radius: 0 0 50px 50px;
+  background-image: linear-gradient(to bottom, #07f, #0df);
+  color: var(--theme);
+}
+.ui-logo{
+  width: 50%;
+  margin-top: 50px;
+}
+h1{
+  margin: 0;
+}
+.header a{
+  color: var(--theme);
+  text-decoration: none;
+}
+.float-container{
+  width: 85%;
+  margin:-30% 7.5%;
+}
+.selector{
+  margin-bottom: 15px;
+}
+.selector select{
+  width: 40%;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background: var(--theme);
+}
+.selector .fa{
+  color: var(--theme);
+  font-size: 20px;
+  height: 30px;
+  width: 7.5%;
+}
+.container{
+  background: var(--theme);
+  border-radius: 30px;
+  box-shadow: 0 0 15px 3px #00000033;
+  padding: 15px;
+}
+.container p{
+  width: 100%;
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #aaa;
+  color: #09f;
+}
+.container input{
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  background: var(--theme);
+  padding: 10px;
+  color:#09f;
+  font-size: 20px;
+  
+}
+.container input:placeholder{
+  color: #ddd;
+}
+.container input:focus{
+  border: 1px solid #09f;
+}
+.container button{
+  border-radius: 10px;
+  background: #09f;
+  padding: 10px 15px;
+  color:var(--theme);
+  font-size: 20px;
+  box-shadow: 0 0 5px 1px #00000033;
+  border: 1px solid #09f;
+}
+
+.container button:active{
+  background: var(--theme);
+  color: #09f;
+}
+.social{
+  text-align: center;
+  margin-top:10px;
+}
+.social a{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  background: var(--theme);
+  text-align:center;
+  border-radius:10px;
+  box-shadow: 0 0 5px 1px #00000033;
+  display: inline-block;
+  color:#09f;
+  margin:0 5px;
+}
+.social a:hover{
+  background: #09f;
+  color:var(--theme);
+}
+@media (min-width: 720px) {
+  html, body{
+    align-items: center;
+  }
+  .header{
+    border-radius: 50px;
+  }
+}
