@@ -1,74 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
-    <link rel="manifest" href="assets/manifest.json">
     <meta name="description" content="All Currencies Converter by https://tdim.me" />
-    <link rel="icon shortcut" href="./assets/images/logo-512.png">
-    <link rel="stylesheet" href="./assets/css/fontawesome/css/all.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="alternate" hreflang="en" href="."/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="themeColor" name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="assets/res/manifest.json" />
+    <link rel="icon shortcut" href="assets/images/logo-512.png" />
+    <link rel="stylesheet" href="assets/css/core.css" />
     <script>
-    if(!location.href.includes("localhost")){
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
+      if (!location.href.includes("localhost") || location.hash == "#install") {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("sw.js");
+        }
+        if (!navigator.onLine) {
+          var link = document.createElement("a");
+          link.href = "assets/res/offline.html";
+          link.click();
+        }
       }
-      if(!navigator.onLine){
-        var link=document.createElement("a");
-        link.href="assets/offline.html";
-        link.click();
-      }
-     }
     </script>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
   </head>
   <body>
-    <section id="app">
-    <center class="header">
-      <img class="ui-logo" alt="Currency Converter" src="assets/images/logo-ui.svg">
-      <h1>
-        Currency Converter
-        <a class="fa fa-globe" href="all.html"></a>
-      </h1>
+    <center class="container">
+      <center class="header">
+        <img class="ui-logo" alt="Currency Converter" src="assets/images/logo-ui.svg" />
+        <h1>Currency Converter</h1>
+        <i class="fad fa-moon-over-sun"></i>
+        <div class="selectors">
+          <input type="button" class="selector from-selector" data-iso="EGP" value="EGP - Egyption Pound" />
+          <img class="switch" src="assets/images/switch.png" />
+          <input type="button" class="selector to-selector" data-iso="RUB" value="RUB - Russian Ruble" />
+        </div>
+        <div id="currency-picker" style="display:none">
+          <div class="searchBar">
+            <input type="search" id="search" placeholder="Search" />
+            <button onclick="$0('#currency-picker').hide()">Cancel</button>
+          </div><hr>
+          <ul id="list"></ul>
+        </div>
+      </center>
+      <div class="content">
+        <span>From :</span><hr>
+        <input id="from" type="number" placeholder="0.00" />
+        <br>
+        <span>To :</span><hr>
+        <input id="to" placeholder="0.00" disabled />
+        <br>
+        <button onclick="exchange()">Exchange</button>
+      </div>
+      <center class="social">
+        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+      </center>
     </center>
-    <center class="float-container">
-      <div class="selector">
-        <select id="from">
-          <option value="EGP">EGP - Egypt Pound</option>
-          <option value="USD">USD - United States Dollar</option>
-          <option selected value="RUB">RUB - Russia Ruble</option>
-          <option value="SAR">SAR - Saudi Arabia Riyal</option>
-        </select>
-        <i class="fa fa-arrow-right"></i>
-        <select id="to">
-          <option selected value="EGP">EGP - Egypt Pound</option>
-          <option value="USD">USD - United States Dollar</option>
-          <option value="RUB">RUB - Russia Ruble</option>
-          <option value="SAR">SAR - Saudi Arabia Riyal</option>
-        </select>
-      </div>
-      <div class="container">
-        <p id="from-title">From :</p>
-        <input id="fromVal" type="number" placeholder="0.00">
-        <br>
-        <p id="to-title">To :</p>
-        <input id="toVal" placeholder="0.00" disabled>
-        <br>
-        <br>
-        <button onclick="exchange(from.value,to.value,fromVal.value);">Convert</button>
-      </div>
-      <div class="social">
-        <a href="http://github.com/TdimMax"><i class="fab fa-github"></i></a>
-        <a href="http://t.me/TdimDev"><i class="fab fa-telegram"></i></a>
-        <a href="http://instagram.com/Tdim.Dev"><i class="fab fa-instagram"></i></a>
-        <a href="http://fb.com/TdimDev"><i class="fab fa-facebook"></i></a>
-        <a href="http://m.me/TdimDev"><i class="fab fa-facebook-messenger"></i></a>
-      </div>
-    </center>
-    </section>
-    <script src="./assets/js/apiKey.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="assets/res/HimaQuery.js"></script>
+    <script src="assets/js/core.js"></script>
   </body>
 </html>

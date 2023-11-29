@@ -1,128 +1,230 @@
-:root{--theme:#fff;}
-*{
-  font-family: Sans-Serif;
+@import url(https://bit.ly/3goJURh);
+
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-  outline: 0;
-}
-html, body{
-  width: 100%;
-  height: 100%;
+  padding: 0;
   margin: 0;
-  display: flex;
-  justify-content: center;
-}
-#app{
-  max-width: 375px;
-  height:600px;
-  margin: 0;
-}
-.header{
-  width: 100%;
-  height: 65%;
-  border-radius: 0 0 50px 50px;
-  background-image: linear-gradient(to bottom, #07f, #0df);
-  color: var(--theme);
-}
-.ui-logo{
-  width: 50%;
-  margin-top: 50px;
-}
-h1{
-  margin: 0;
-}
-.header a{
-  color: var(--theme);
-  text-decoration: none;
-}
-.float-container{
-  width: 85%;
-  margin:-30% 7.5%;
-}
-.selector{
-  margin-bottom: 15px;
-}
-.selector select{
-  width: 40%;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid #aaa;
-  background: var(--theme);
-}
-.selector .fa{
-  color: var(--theme);
-  font-size: 20px;
-  height: 30px;
-  width: 7.5%;
-}
-.container{
-  background: var(--theme);
-  border-radius: 30px;
-  box-shadow: 0 0 15px 3px #00000033;
-  padding: 15px;
-}
-.container p{
-  width: 100%;
-  text-align: left;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #aaa;
-  color: #09f;
-}
-.container input{
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid #aaa;
-  background: var(--theme);
-  padding: 10px;
-  color:#09f;
-  font-size: 20px;
-  
-}
-.container input:placeholder{
-  color: #ddd;
-}
-.container input:focus{
-  border: 1px solid #09f;
-}
-.container button{
-  border-radius: 10px;
-  background: #09f;
-  padding: 10px 15px;
-  color:var(--theme);
-  font-size: 20px;
-  box-shadow: 0 0 5px 1px #00000033;
-  border: 1px solid #09f;
 }
 
-.container button:active{
-  background: var(--theme);
-  color: #09f;
+:root {
+  --colorAccent: #0099ff;
+  --primary: #ffffff;
+  --secondary: #ffffff;
+  --shadow: #00000022;
+  --header: linear-gradient(to bottom, #0099ff, #00ddff);
+  --font: #dddddd;
 }
-.social{
-  text-align: center;
-  margin-top:10px;
+
+::-webkit-scrollbar {
+  width: 10px;
 }
-.social a{
-  width:40px;
-  height:40px;
-  line-height:40px;
-  background: var(--theme);
-  text-align:center;
-  border-radius:10px;
-  box-shadow: 0 0 5px 1px #00000033;
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px 1px var(--shadow); 
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 5px 1px var(--shadow); 
+  background: var(--colorAccent); 
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0055ff; 
+}
+
+input::-webkit-scrollbar {
+  display: none;
+}
+
+input {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html,
+body {
+  font-family: Sans-Serif;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+}
+
+.container {
+  padding: 10px;
+  width: 100%;
+}
+
+.header {
+  position: relative;
+  background: var(--header);
+  padding: 30px 10px 100px 10px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 2px var(--shadow);
+  color: var(--font);
+  width: 100%;
+  max-width: 350px;
+}
+
+.header img {
+  width: 150px;
+}
+
+.header h1 {
+  font-size: 30px;
+  margin: 15px 0;
+  color: #ffffff;
+}
+
+.header .fa-moon-over-sun {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 25px;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.header .selectors {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  width: fit-content;
+  margin: 5px 0;
+  gap: 10px;
+}
+
+.header input, .content input {
+  overflow: auto;
+  background: var(--primary);
+  color: var(--font);
+  box-shadow: 0 0 5px 1px var(--shadow);
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px;
+  max-width: 120px;
+  border: none;
+}
+
+.header img.switch {
+  width: 40px;
+  height: 40px;
+  transition: 0.5s transform;
+}
+
+.header #currency-picker {
+  background: var(--secondary);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--shadow);
+  position: absolute;
+  margin: 10px;
+  width: calc(100% - 40px);
+  max-width: 330px;
+  z-index: 2;
+  padding: 10px;
+}
+
+.header #currency-picker .searchBar {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  gap: 10px;
+}
+
+.header #currency-picker .searchBar input {
+  color: var(--colorAccent);
+  min-width: 100%;
+  outline: 0;
+}
+.header #currency-picker .searchBar button {
+  width: 70px !important;
+}
+
+.header #currency-picker #list {
+  overflow: auto;
+  height: 80vh;
+  max-height: 300px;
+}
+
+.header #currency-picker #list li {
+  list-style: none;
+  text-align: left;
+  margin: 0 5px;
+  padding: 5px 5px 10px 5px;
+}
+
+.content {
+  margin-top: -80px;
+  position: relative;
+  background: var(--secondary);
+  box-shadow: 0 2px 8px 2px var(--shadow);
+  padding: 20px;
+  border-radius: 30px;
+  color: var(--font);
+  width: calc(100% - 40px);
+  max-width: 310px;
+}
+
+.content span {
+  width: 100%;
+  display: block;
+  font-size: 20px;
+  text-align: left;
+}
+
+.header hr, .content hr {
+  border: 1px solid var(--font);
+  opacity: 0.3;
+  background: var(--font);
+  margin: 10px 0;
+}
+
+.content input {
+  background: var(--secondary);
+  color: var(--colorAccent);
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+.content button, .header #currency-picker .searchBar button{
+  height: 40px;
+  width: 100px;
+  background: var(--colorAccent);
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 0 0 5px 1px var(--shadow);
+}
+
+.social a {
+  background: var(--secondary);
+  box-shadow: 0 0 5px 1px var(--shadow);
   display: inline-block;
-  color:#09f;
-  margin:0 5px;
+  text-decoration: none;
+  color: var(--colorAccent);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  margin: 15px 5px;
+  font-size: 25px;
 }
-.social a:hover{
-  background: #09f;
-  color:var(--theme);
+
+.social a:hover {
+  background: var(--colorAccent);
+  color: #ffffff;
 }
+
 @media (min-width: 720px) {
-  html, body{
-    align-items: center;
-  }
-  .header{
-    border-radius: 50px;
+  html,
+  body {
+    
   }
 }

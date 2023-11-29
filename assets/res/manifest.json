@@ -1,38 +1,38 @@
 {
   "name": "Currency Converter",
   "short_name": "Currency Converter",
-  "start_url": "../index.html",
-  "scope": "../",
+  "start_url": "../../index.html",
+  "scope": "../../",
   "display": "standalone",
-  "theme_color": "#0077ff",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "orientation":"portrait",
   "description": "All Currencies Converter by https://tdim.me.",
   "screenshots": [
     {
-      "src": "./images/screenshot-desktop.png",
+      "src": "../images/screenshot-desktop.png",
       "sizes": "1080x2160",
       "type": "image/png"
     },
     {
-      "src": "./images/screenshot-mobile.png",
+      "src": "../images/screenshot-mobile.png",
       "sizes": "1080x2160",
       "type":"image/png"
     }
   ],
   "icons": [
     {
-      "src": "./images/logo-192.png",
+      "src": "../images/logo-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./images/logo-512.png",
+      "src": "../images/logo-512.png",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "./images/logo-512.png",
+      "src": "../images/logo-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "monochrome"
