@@ -1,6 +1,6 @@
-new HimaQuery("$0", (bridge)=>{
+new HimaQuery("$0", (bridge) => {
   return {
-    ldb: window.localStorage
+    ldb: window.localStorage,
   };
 });
 
@@ -26,7 +26,7 @@ var config = {
       shadow: "#00000022",
       font: "#3f3f3f",
     },
-  }
+  },
 };
 
 setInterval(function () {
@@ -46,22 +46,22 @@ setInterval(function () {
   $0("head > #themeColor").content = themeConfig.primary;
   // search listener
   var match = $0("#search").value;
-  $0("#list > li", true).forEach(item=>{
+  $0("#list > li", true).forEach((item) => {
     if (item.innerHTML.toUpperCase().includes(match.toUpperCase())) {
       item.show();
-    } else{
+    } else {
       item.hide();
     }
   });
 }, 10);
-$0(".fa-moon-over-sun").on("click", ()=>{
+$0(".fa-moon").on("click", () => {
   if ($0().ldb.defaultMode == "light") {
     $0().ldb.defaultMode = "dark";
   } else {
     $0().ldb.defaultMode = "light";
   }
 });
-$0(".switch").on("click", ()=>{
+$0(".switch").on("click", () => {
   switchRotate = switchRotate + 90;
   $0(".switch").style.transform = `rotate(${switchRotate}deg)`;
   var bridge = $0(".from-selector").value;
@@ -71,8 +71,8 @@ $0(".switch").on("click", ()=>{
   $0(".from-selector").dataset.iso = $0(".to-selector").dataset.iso;
   $0(".to-selector").dataset.iso = bridge;
 });
-$0(".selector", true).forEach(selector=>{
-  selector.on("click", ()=>{
+$0(".selector", true).forEach((selector) => {
+  selector.on("click", () => {
     currentSelector = selector;
     $0("#currency-picker").show();
   });
@@ -83,9 +83,7 @@ async function exchange() {
   var from = $0(".from-selector").dataset.iso;
   var to = $0(".to-selector").dataset.iso;
   var amount = $0("#from").value > 0 ? $0("#from").value : 1;
-  var response = await fetch(
-    `https://currency-api-tdim.vercel.app/${from}/${to}?amount=` + amount
-  );
+  var response = await fetch(`https://currency-api-tdim.vercel.app/${from}/${to}?amount=` + amount);
   if (response.ok) {
     let output = "";
     let data = await response.json();
@@ -101,17 +99,17 @@ async function exchange() {
     alert("Please check your connection!");
   }
 }
-function setCurrency(label){
+function setCurrency(label) {
   currentSelector.value = label;
   currentSelector.dataset.iso = label.split(" ")[0];
   $0("#currency-picker").hide();
   $0("#search").value = "";
 }
-$0().on("DOMContentLoaded", async ()=>{
+$0().on("DOMContentLoaded", async () => {
   var response = await fetch("assets/res/currencies.json");
   if (response.ok) {
     labels = await response.json();
-    labels.forEach(label=>{
+    labels.forEach((label) => {
       $0("#list").innerHTML += `<li onclick="setCurrency('${label}')">${label}</li>`;
     });
   } else {
