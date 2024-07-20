@@ -1,8 +1,8 @@
-![Currency Converter Logo](assets/images/logo-512.png)
+![Currency Converter Logo](docs/assets/images/logo-512.png)
 # Currency Converter
 
 ## Description
-- All Currencies Converter by https://tdim.me
+- All Currencies Converter by https://hima-pro.github.io
 
 ## Futures
 - Support all the Currencies in the world
